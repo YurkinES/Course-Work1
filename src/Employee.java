@@ -2,12 +2,22 @@ public class Employee {
     private final String name;
     private int departmentNumber;
     private float salary;
-    Counter id = new Counter();
-    public Employee(Counter id, String name, int departmentNumber, int salary) {
-        this.id = this.id;
+    static int idCounter = 1;
+    int id;
+    private int personalId;
+
+    public Employee(int personalId, String name, int departmentNumber, int salary) {
+        this.id = idCounter++;
         this.name = name;
         this.departmentNumber = departmentNumber;
         this.salary = salary;
+        this.personalId = personalId;
+    }
+    public void setId(int count){this.id = id;}
+    public int getPersonalId(){ return personalId;}
+
+    public void setPersonalId(int personalId) {
+        this.personalId = personalId;
     }
 
     public String getName(){
@@ -19,7 +29,7 @@ public class Employee {
     public float getSalary(){
         return salary;
     }
-    public Counter getId(){
+    public int getId(){
         return id;
     }
     public void setDepartmentNumber(){
@@ -29,6 +39,6 @@ public class Employee {
         this.salary = salary;
     }
     public String toString(){
-        return id + " " + name + " отдел № " + departmentNumber + " зарплата:" + salary;
+        return id + " "+ " ID: " + personalId+ " " + name + " отдел № " + departmentNumber + " зарплата:" + salary;
     }
 }
