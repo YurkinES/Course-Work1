@@ -5,20 +5,21 @@ import java.util.Arrays;
 public class EmployeeBook {
     private final Employee[] employeesBook;
     private int size;
-    Counter id = new Counter();
+
+    //Counter id = new Counter();
     public EmployeeBook(){
         this.employeesBook = new Employee[15];
     }
-    public void addEmployee( String name, int departmentNumber, int salary){
+    public void addEmployee(int personalId, String name, int departmentNumber, int salary){
         if (size >= employeesBook.length) {
             System.out.println("Книга сотрудников заполнена");
         }
-        Employee newEmployee = new Employee(id, name, departmentNumber, salary);
+        Employee newEmployee = new Employee(personalId, name, departmentNumber, salary);
         employeesBook[size++] = newEmployee;
     }
-    public void removeEmployee(String name, Counter id){
+    public void removeEmployee(String name, int personalId){
         for (int i = 0; i < employeesBook.length; i++) {
-            if ((employeesBook[i].getName().equals(name)) || (employeesBook[i].getId() == id)) {
+            if ((employeesBook[i].getName().equals(name)) || (employeesBook[i].getPersonalId() == personalId)) {
                 System.out.println("Информация о сотруднике " + employeesBook[i].getName() + " удалена");
                 System.arraycopy(employeesBook, i + 1, employeesBook, i, size - i - 1);
                 employeesBook[size - 1] = null;
@@ -27,10 +28,10 @@ public class EmployeeBook {
             }
         }
     }
-    public void findEmployee(String name, Counter id){
+    public void findEmployee(String name, int id){
         for (int i = 0; i < size; i++) {
             Employee employee = employeesBook[i];
-            if(employee.getName().equals(name) || employee.getId() == id){
+            if(employee.getName().equals(name) || employee.getPersonalId() == id){
                 System.out.println(employee);
             }
             }
@@ -62,6 +63,7 @@ public class EmployeeBook {
             Employee employee = employeesBook[i];
             if(smallestSalary == employee.getSalary()){
                 System.out.println("Сотрудник с наименьшей зарплатой: " + employee);
+
             }
         }
     }
