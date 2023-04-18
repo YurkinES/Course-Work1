@@ -28,7 +28,6 @@ public class Employee {
     public void setSalary(float salary){
         this.salary = salary;
     }
-
     public String toString(){
         return id + " " + name + " отдел № " + departmentNumber + " зарплата:" + salary;
     }

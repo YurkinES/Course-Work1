@@ -26,5 +26,6 @@ public class Main {
     employeeBook.printDepartmentEmployees(5);
     employeeBook.emploteesSmallestSalary(92000);
     employeeBook.employeesBiggestSalary(130000);
+
     }
 }

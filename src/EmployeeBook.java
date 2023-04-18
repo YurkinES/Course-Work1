@@ -62,6 +62,7 @@ public class EmployeeBook {
             Employee employee = employeesBook[i];
             if(smallestSalary == employee.getSalary()){
                 System.out.println("Сотрудник с наименьшей зарплатой: " + employee);
+
             }
         }
     }
